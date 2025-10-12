@@ -211,10 +211,12 @@
             .diagram-container {
                 padding: 10px;
                 margin: 15px 0;
+                overflow-x: visible;
             }
             
             .diagram-container svg {
-                min-width: 600px;
+                width: 100%;
+                height: auto;
             }
         }
 
@@ -663,6 +665,39 @@
         .demo-link:hover {
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(0,120,212,0.3);
+        }
+
+        /* Mobile-specific fixes for slides 5, 6, 8, 9 */
+        @media (max-width: 768px) {
+            /* Slide 5, 6, 8 - feature lists */
+            .feature-list {
+                font-size: clamp(14px, 2vw, 16px) !important;
+            }
+
+            /* Slide 8 - h3 inside content */
+            .two-column h3 {
+                font-size: clamp(16px, 3vw, 18px) !important;
+            }
+
+            /* Slide 8 - workspace types box */
+            .two-column .visual-box h3 {
+                font-size: clamp(15px, 2.5vw, 18px) !important;
+            }
+
+            .two-column .visual-box div {
+                font-size: clamp(13px, 2vw, 16px) !important;
+            }
+
+            /* Slide 9 - GitHub icon text */
+            div[style*="font-size: 48px"] {
+                font-size: clamp(28px, 6vw, 48px) !important;
+            }
+
+            /* Slide 9 - Large padding and font adjustments */
+            div[style*="font-size: 48px"] span {
+                padding: 12px !important;
+                font-size: clamp(20px, 4vw, 28px) !important;
+            }
         }
     </style>
 </head>
@@ -1176,33 +1211,7 @@ Developed by <strong>Chris Cusumano</strong> — with inspiration from the Power
 
         showSlide(0);
 
-        // Add touch support for mobile swipe navigation
-        let touchStartX = 0;
-        let touchEndX = 0;
-        
-        document.addEventListener('touchstart', function(e) {
-            touchStartX = e.changedTouches[0].screenX;
-        }, false);
-        
-        document.addEventListener('touchend', function(e) {
-            touchEndX = e.changedTouches[0].screenX;
-            handleSwipe();
-        }, false);
-        
-        function handleSwipe() {
-            const swipeThreshold = 50;
-            const diff = touchStartX - touchEndX;
-            
-            if (Math.abs(diff) > swipeThreshold) {
-                if (diff > 0) {
-                    // Swiped left - next slide
-                    nextSlide();
-                } else {
-                    // Swiped right - previous slide
-                    previousSlide();
-                }
-            }
-        }
+        // Touch swipe navigation disabled - use navigation buttons instead
     </script>
 </body>
 </html>
