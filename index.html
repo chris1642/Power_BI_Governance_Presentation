@@ -45,6 +45,7 @@
             box-shadow: 0 20px 60px rgba(0,0,0,0.3);
             display: none;
             padding: 40px;
+            padding-bottom: 100px;
             position: relative;
             overflow: auto;
             border: 2px solid rgba(255,193,7,0.2);
@@ -53,6 +54,7 @@
         @media (max-width: 768px) {
             .slide {
                 padding: 20px;
+                padding-bottom: 100px;
                 min-height: auto;
                 border-radius: 10px;
             }
@@ -376,6 +378,10 @@
             display: flex;
             gap: 15px;
             z-index: 100;
+            background: rgba(31, 31, 31, 0.05);
+            padding: 10px 20px;
+            border-radius: 30px;
+            backdrop-filter: blur(10px);
         }
 
         @media (max-width: 768px) {
@@ -384,6 +390,7 @@
                 gap: 10px;
                 width: calc(100% - 40px);
                 justify-content: space-between;
+                padding: 8px 15px;
             }
         }
 
@@ -1006,8 +1013,21 @@ Developed by <strong>Chris Cusumano</strong> — with inspiration from the Power
                     <div class="feature-desc">Explorable via familiar interface</div>
                 </div>
             </div>
-            <div class="installation-steps">
-                <h3>🚀 Simple Installation (3 Steps)</h3>
+            <div class="installation-steps" style="background: linear-gradient(135deg, rgba(0,120,212,0.08) 0%, rgba(16,124,16,0.08) 100%); border-left: 4px solid #0078d4;">
+                <h3 style="color: #0078d4;">🎯 One-Click Installation (Recommended)</h3>
+                <p style="margin-bottom: 12px; font-size: clamp(14px, 2vw, 16px); line-height: 1.5;">
+                    <strong>Download the One-Click Update & Run Tool</strong> — it automatically pulls the latest version from GitHub, 
+                    places it in <code style="background: rgba(0,0,0,0.05); padding: 2px 6px; border-radius: 3px;">C:\Power BI Backups</code>, 
+                    runs the script, and opens the final model. Always stays up-to-date!
+                </p>
+                <a href="https://github.com/chris1642/Power-BI-Backup-Impact-Analysis-Governance-Solution/releases/download/v1.0/PBIGovernance-UpdateAndRun.bat" 
+                   class="demo-link" style="display: inline-block; margin-top: 10px;">
+                    ⬇️ Download One-Click Tool
+                </a>
+            </div>
+            
+            <div class="installation-steps" style="margin-top: 15px;">
+                <h3>📋 Alternative: Manual Installation (3 Steps)</h3>
                 <ol>
                     <li>Create folder: <strong>C:\Power BI Backups</strong></li>
                     <li>Download repo contents to that folder</li>
